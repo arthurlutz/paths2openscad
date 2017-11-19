@@ -653,7 +653,7 @@ class OpenSCAD(inkex.Effect):
 
         All other SVG elements trigger an error (including <text>)
         '''
-
+        parseTransform = simpletransform.parseTransform
         for node in aNodeList:
 
             # Ignore invisible nodes
@@ -703,7 +703,7 @@ class OpenSCAD(inkex.Effect):
                     if (x != 0) or (y != 0):
                         matNew2 = simpletransform.composeTransform(
                             matNew,
-                            simpletransform.parseTransform('translate(%f,%f)' % (x, y)))
+                            parseTransform('translate(%f,%f)' % (x, y)))
                     else:
                         matNew2 = matNew
                     v = node.get('visibility', v)
