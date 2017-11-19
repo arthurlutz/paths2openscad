@@ -701,9 +701,9 @@ class OpenSCAD(inkex.Effect):
                     y = float(node.get('y', '0'))
                     # Note: the transform has already been applied
                     if (x != 0) or (y != 0):
-                        matNew2 = composeTransform(
+                        matNew2 = simpletransform.composeTransform(
                             matNew,
-                            parseTransform('translate(%f,%f)' % (x, y)))
+                            simpletransform.parseTransform('translate(%f,%f)' % (x, y)))
                     else:
                         matNew2 = matNew
                     v = node.get('visibility', v)
